@@ -15,8 +15,7 @@ public class Ex01 {
 		String s4 = "Hello";
 		System.out.println(s3 == s4); //객체의 동일성
 		System.out.println(s3.equals(s4)); //객체의 동질성
-		
-		
+
 	}
 
 }
