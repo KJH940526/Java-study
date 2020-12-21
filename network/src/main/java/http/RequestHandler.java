@@ -102,6 +102,30 @@ public class RequestHandler extends Thread {
 		outputStream.write("\r\n".getBytes("UTF-8"));
 		outputStream.write(body);
 	}
+	
+	public void response400Error(OutputStream outputStream) throws IOException{
+		File file = new File(DOCUMENT_ROOT +"/error/400.html");
+		// nio
+		byte[] body = Files.readAllBytes(file.toPath());
+		
+		// response
+		outputStream.write("HTTP/1.1 400 Bad Request\r\n".getBytes("UTF-8"));
+		outputStream.write("Content-Type:text/html; charset=utf-8\r\n".getBytes("UTF-8"));
+		outputStream.write("\r\n".getBytes("UTF-8"));
+		outputStream.write(body);
+	}
+	
+	public void response404Error(OutputStream outputStream) throws IOException{
+		File file = new File(DOCUMENT_ROOT +"/error/404.html");
+		
+		byte[] body = Files.readAllBytes(file.toPath());
+		
+		outputStream.write("HTTP/1.1 404 Not Found\r\n".getBytes("UTF-8"));
+		outputStream.write("Content-Type:text/html; charset=utf-8\r\n".getBytes("UTF-8"));
+		outputStream.write("\r\n".getBytes("UTF-8"));
+		outputStream.write(body);
+	}
+	
 
 	public void consoleLog(String message) {
 		System.out.println("[RequestHandler#" + getId() + "] " + message);
