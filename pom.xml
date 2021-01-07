@@ -39,5 +39,6 @@
 		<module>io</module>
 		<module>network</module>
 		<module>jdbc-practices</module>
+		<module>exception</module>
 	</modules>
 </project>
